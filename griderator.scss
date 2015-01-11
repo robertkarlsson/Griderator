@@ -1,6 +1,6 @@
 @import "_functions";
 
-@mixin gridsystem ($prefix, $columns, $margin)
+@mixin griderator ($prefix, $columns, $margin)
 { 
   $context: 1000;
   $size: (($context / $columns) * (1 - ($margin * ($columns - 1)) / $context));
