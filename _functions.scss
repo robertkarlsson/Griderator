@@ -1,0 +1,4 @@
+@function prcentify($input)
+{
+  @return unquote(($input * 100) + "%");
+}

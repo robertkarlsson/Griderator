@@ -1,0 +1,50 @@
+@import "_functions";
+
+@mixin gridsystem ($prefix, $columns, $margin)
+{ 
+  $context: 1000;
+  $size: (($context / $columns) * (1 - ($margin * ($columns - 1)) / $context));
+  
+  @if $prefix != ""
+  {
+    $prefix: $prefix + "-";
+  }
+  
+  .grid-container > [class^="#{$prefix}grid-"]
+  {
+    float:left;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: prcentify($margin/$context);
+
+    &:first-child{
+      margin-left: 0;
+    }
+    
+    &:last-child {
+      float: right;
+    }
+  }
+  
+  @for $i from 1 through $columns {
+    @if ($i == 1)
+    {
+        .#{$prefix}grid-#{$i} {
+        width: prcentify(($size * $i)/$context);
+      }
+    }@else{
+      .#{$prefix}grid-#{$i} {
+        width: prcentify(((($size * $i) + ($margin * ($i - 1))) / $context));
+      }
+    } 
+  }
+  
+  //Clearfix
+  .group:after,
+  .grid-container:after
+  {
+    display: table;
+    content: "";
+    clear: both;
+  }
+}
