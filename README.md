@@ -1,7 +1,7 @@
 # Griderator
 
 ## About
-A very simplistic grid-generator for SASS
+A simple grid-generator for SASS
 
 ## Using
 @import "griderator/griderator"
@@ -23,6 +23,7 @@ Example with prefix:
 Example in media query
 
 ```
-@media screen and (min-width: 768px)
+@media screen and (min-width: 768px) {
 @include griderator("tablet", 12, 20);
+}
 ```
